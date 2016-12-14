@@ -101,8 +101,8 @@ class Perceptron(list):
                 test_set: Set to be evaluated.
 
             Returns:
-                A number between 0 and -1 that represents the amount of error,
-                    with outcomes closer to -1 representing more error.
+                A number from 1 to 0 that represents the amount of error,
+                    with lower outcomes representing more error.
         """
         errors = 0
         for x, y in test_set:
@@ -110,7 +110,7 @@ class Perceptron(list):
             if out != y: # If the prediction doesn't match what's given in test_set
                 errors +=1  
         return 1 - errors / len(test_set)
-        #eg: No error is (1-0)/20 = 0.05, all error is (1-20)/20 = -0.95
+        #eg: No error is 1-(0/20) = 1.0, all error is 1-(20/20) = 0.0
 
 
     def decision_boundary(self):
